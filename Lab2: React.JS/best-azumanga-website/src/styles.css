@@ -1,0 +1,98 @@
+body, #root {
+    flex: 1;
+    display: flex;
+    margin: 0;
+    background-color: #f9f9f9; color: #111;
+    font-family: system-ui;
+}
+
+aside {
+    position: sticky; top: 0;
+    width: 10%; min-width: 160px; height: 100vh;
+    background: linear-gradient(hotpink, darksalmon);
+    flex-direction: column;
+}
+
+.sidelink {
+    display: block;
+    padding: 20px; margin: 1rem;
+    text-align: center; text-decoration: none;
+    background-color: #fff3; color: #fff;
+    transition: .2s;
+    
+    &:hover {
+        background-color: #fff5;
+        scale: 1.1;
+    }
+
+    &.bordered {
+        border: 2px solid lightcyan;
+    }
+
+    &.active {
+        background-color: #fffc; color: darkmagenta;
+        border-color: transparent;
+
+        &:hover {
+            background-color: #fffd;
+        }
+    }
+}
+
+main {
+    max-width: 800px;
+    margin: auto; padding: 1rem 3rem;
+
+    & img {
+        width: 100%;
+    }
+}
+
+h1, h2, h3 {
+    font-family: serif;
+    margin-bottom: 4px;
+    
+    &:hover::before {
+        content: '# '
+    }
+}
+p {
+    margin: 8px 0;
+}
+
+#welcome {
+    margin: 20px 0;
+    background-color: pink;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+th {
+    text-align: left;
+    background-color: deeppink; color: white;
+    background: linear-gradient(hotpink, darkmagenta);
+}
+
+ul {
+    list-style: cjk-decimal;
+}
+
+tr {
+    transition: .2s;
+
+    &:nth-child(2n+1) {
+        background-color: #eee;
+    }
+    
+    &:hover {
+        background-color: pink; /* color: mediumvioletred; */
+        transition: 0ms;
+    }
+}
