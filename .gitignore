@@ -3,5 +3,9 @@
 
 **/.venv
 **/__pycache__
+**/migrations/versions
 pyvenv.cfg
 *.pyc
+
+# Пушить дотенвы на гит считается плохим тоном
+.env

@@ -1,0 +1,2 @@
+alembic revision --autogenerate -m "create pages table"
+alembic upgrade head
