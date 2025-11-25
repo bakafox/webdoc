@@ -8,7 +8,6 @@ import WelcomePanel from './panels/WelcomePanel'
 import PostsPanel from './panels/PostsPanel'
 import InvertPanel from './panels/InvertPanel'
 import StasPanel from './panels/StasPanel'
-import AuthPanel from './panels/AuthPanel'
 import CustomPagePanel from './panels/CustomPagePanel'
 
 axios.defaults.baseURL = process.env.BACKEND_ROOT || 'http://localhost:8000'
@@ -16,10 +15,6 @@ axios.defaults.baseURL = process.env.BACKEND_ROOT || 'http://localhost:8000'
 function App() {
     return (
         <Routes>
-            <Route path="/auth" element={<AuthPanel />} />
-            <Route path="/login" element={<Navigate to="/auth" />} />
-            <Route path="/register" element={<Navigate to="/auth" />} />
-
             <Route path="/" element={<Layout />}>
                 <Route index element={<WelcomePanel />} />
 

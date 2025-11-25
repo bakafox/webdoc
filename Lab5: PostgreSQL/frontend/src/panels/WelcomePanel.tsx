@@ -2,15 +2,15 @@ function WelcomePanel() {
     return (
         <main>
             <h1>
-                Добро пожаловать, USERNAME, на лучший сайт 
+                Добро пожаловать на лучший сайт 
                 <br />по Azumanga Daioh во вселенной!!!
             </h1>
 
             <span className="user-actions">
-                <span style={{'flex': 1}}>Ваша роль: <b>User</b></span>
+                {/* <span style={{'flex': 1}}>Ваша роль: <b>User</b></span> */}
                 <a href={(process.env.BACKEND_ROOT || 'http://localhost:8000') + '/docs'}>Открыть Swagger</a>
-                <span>&nbsp;•&nbsp;</span>
-                <a href=''>Покинуть сайт Т-Т</a>
+                {/* <span>&nbsp;•&nbsp;</span>
+                <a href=''>Покинуть сайт Т-Т</a> */}
             </span>
 
             <img src="img-abstract.png" title="Осака, Осака, Осака… Осака… и, кто бы вы думали? Осака!" />
