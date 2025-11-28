@@ -6,7 +6,7 @@ from pathlib import Path
 from random import randint
 import os
 
-router = APIRouter(prefix='/invert')
+router = APIRouter(prefix='/image')
 
 # https://stackoverflow.com/questions/65408109/how-do-i-receive-image-and-json-data-in-fastapi
 # https://www.getorchestra.io/guides/fastapi-working-with-request-files

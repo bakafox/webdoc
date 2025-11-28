@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom"
 import MsgBox from "../components/MsgBox"
 
 function StasPanel() {
-    const [getStas, setStas] = useState<PageStas[]>([])
+    const [getStas, setStas] = useState<PageStas[] | null>(null)
     const [getErrText, setErrText] = useState<string | null>(null)
 
     const navigate = useNavigate()
@@ -23,14 +23,18 @@ function StasPanel() {
     }
 
     useEffect(() => {
+        const i = setInterval(loadStas, 5000)
+
         loadStas()
+
+        return (() => clearInterval(i))
     }, [])
 
     return (
         <main>
             <h1>Число и продолжительность посещений страниц:</h1>
 
-            {!getStas.length
+            {getStas === null
                 ? (
                     getErrText
                         ? (

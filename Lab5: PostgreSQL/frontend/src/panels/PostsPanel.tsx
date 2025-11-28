@@ -52,7 +52,7 @@ function PostsPanel() {
                         getPosts === null ? (
                             <MsgBox variant="regular" text='Загрузка!!! ^__^ МЯЯЯЯ' />
                         ) : (
-                            [...getPosts].slice(0, getCount).map(post => (
+                            [...getPosts].reverse().slice(0, getCount).map(post => (
                                 <PostCard post={post} key={post.id} />
                             ))
                         )

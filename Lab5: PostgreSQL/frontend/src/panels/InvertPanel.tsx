@@ -9,7 +9,10 @@ function InvertPanel() {
     const [getImgSrc, setImgSrc] = useState<string | null>(null)
 
     async function fetchInvertedImg() {
-        if (getFile === null) { return setErrText('Чтобы отправить файл надо его сперва загрузить… ну ты и бака~~') }
+        if (getFile === null) {
+            return setErrText('Чтобы отправить файл надо его сперва загрузить… ну ты бака~~')
+        }
+        setImgSrc(null)
 
         try {
             const fd = new FormData()
@@ -20,10 +23,11 @@ function InvertPanel() {
                 fd,
                 { responseType: 'blob' }
             )
-
             const blob: Blob = data.data
             const addr = URL.createObjectURL(blob)
+
             setImgSrc(addr)
+            setErrText(null)
         }
         catch (e) {
             setErrText(`${e}`)
@@ -51,7 +55,7 @@ function InvertPanel() {
             <MsgBox variant="error" text={getErrText} />
 
             {!!getImgSrc && (
-                <img src={getImgSrc} style={{ width: 'auto', maxHeight: '480px' }} />
+                <img src={getImgSrc} />
             )}
         </main>
     )

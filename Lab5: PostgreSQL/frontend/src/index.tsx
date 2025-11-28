@@ -8,10 +8,11 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 )
 
+// StrictMode выключен, чтобы не было двойных активаций эндпоинтов в CustomPagePanel
 root.render(
     <BrowserRouter>
-        <StrictMode>
+        {/* <StrictMode> */}
             <App />
-        </StrictMode>
+        {/* </StrictMode> */}
     </BrowserRouter>
 )
