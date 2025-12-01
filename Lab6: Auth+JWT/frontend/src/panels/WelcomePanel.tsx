@@ -1,0 +1,55 @@
+import type { UserData } from "../types/users"
+
+import { useNavigate, useOutletContext } from "react-router-dom"
+import { revokeToken } from "../token"
+
+function WelcomePanel() {
+    const navigate = useNavigate()
+
+    const { userData } = useOutletContext<{ userData: UserData }>()
+
+    function logout() {
+        revokeToken()
+        navigate('/auth')
+    }
+
+    return (
+        <main>
+            <h1>
+                Добро пожаловать на лучший сайт 
+                <br />по Azumanga Daioh во вселенной!!!
+            </h1>
+
+            <span className="user-actions">
+                <b style={{'flex': 1}}>{userData.email}</b>
+                <span>
+                    <a href={(process.env.BACKEND_ROOT || 'http://localhost:8000') + '/docs'}>Открыть Swagger</a>
+                    <span>&nbsp;•&nbsp;</span>
+                    <a onClick={() => logout()}>Покинуть сайт Т-Т</a>
+                </span>
+            </span>
+
+            <img src="img-abstract.png" title="Осака, Осака, Осака… Осака… и, кто бы вы думали? Осака!" />
+
+            <span>
+                Здесь вы можете узнать всё самое интересное про Азумангу, сюжет и персонажей,
+                <em> я гарантирую это!</em>
+            </span>
+
+            <h2 id="description">В двух словах:</h2>
+            <p>
+                События Azumanga Daioh разворачивается в&nbsp;Японии начала нулевых. Главные героини: шесть школьниц
+                и&nbsp;две учительницы, которые знакомятся между собой и&nbsp;быстро становятся друзьями. Они живут обычной
+                личной и&nbsp;школьной жизнью и&nbsp;часто попадают в&nbsp;различные курьёзные ситуации. И&nbsp;именно эти
+                забавные моменты и&nbsp;составляют сюжет Azumanga Daioh — каждая серия состоит из 4-5 таких "кусочков жизни".
+            </p>
+            <p>
+                Само название «Азуманга Дәйо», кстати, к сюжету отношения не имеет вообще! Оно состоит из части
+                имени автора, слова «манга» (японские комиксы, вы знаете) и&nbsp;названия журнала, в котором
+                манга изначально публиковалась — Dengeki Daioh. Да, всё настолько просто!
+            </p>
+        </main>
+    )
+}
+
+export default WelcomePanel

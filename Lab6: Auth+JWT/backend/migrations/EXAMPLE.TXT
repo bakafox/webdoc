@@ -1,0 +1,7 @@
+alembic current         # Посмотреть текущую версию БД
+
+alembic revision --autogenerate -m "hello world"    # Создать новую версию БД
+
+alembic upgrade VER     # Сделать обновление БД до более новой верии (head для последней)
+
+alembic downgrade VER   # Сделать откат БД до более старой версии (base для первой)
